@@ -1,0 +1,20 @@
+{
+  "name": "hello-world",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat-css": "^2.3.0",
+    "gulp-sass": "^3.1.0",
+    "react-scripts": "1.0.7"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "eject": "react-scripts eject"
+  }
+}
