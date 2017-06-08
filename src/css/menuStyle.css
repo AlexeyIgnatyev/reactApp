@@ -1,0 +1,21 @@
+.menu{
+	text-align: left;
+}
+
+div a{
+	padding: 0 10px;
+	border-right: 1px solid #000;
+	text-decoration:none;
+}
+
+div a:last-child{
+	border-right: none;
+}
+
+div a:visited{
+	color:#000;
+}
+
+div a:hover{
+	text-shadow: 0 2px 2px rgba(0,0,0,0.5);
+}

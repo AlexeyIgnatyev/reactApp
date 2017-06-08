@@ -1,32 +1,30 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-class App extends React.Component{
-	
-	greeting(){
-		let phrase = 'hello world';
-		return phrase;
+import Menu from './Menu';
+
+const App = ({ testStore, onAddPhrase }) => {
+	let phraseInput = '';
+	let greeting = 'hello world'
+
+	const addPhrase = () => {
+		onAddPhrase(phraseInput.value);
+		phraseInput.value = '';
 	}
 
-	addPhrase(){
-		console.log(this.phraseInput.value);
-		this.props.onAddPhrase(this.phraseInput.value);
-		this.phraseInput.value = '';
-	}
+	console.log(testStore);
 
-	render(){
-		console.log(this.props.testStore);
-		let greet = this.greeting();
-		return (
-			<div>
-				<h3>{ greet }</h3>
-				<div className="phraseForm">
-		   			<input type="text" ref={(input) => { this.phraseInput = input}} />
-		   			<button onClick={ this.addPhrase.bind(this) }>Push phrase</button>
-	   			</div>
-	   		</div>
-		);
-	}
+	return (
+		<div>
+			<Menu />
+			<h3>Home page</h3>
+			<h4>{ greeting }</h4>
+			<div className="phraseForm">
+	   			<input type="text" ref={(input) => { phraseInput = input}} />
+	   			<button onClick={ addPhrase }>Push phrase</button>
+   			</div>
+   		</div>
+	);
 }
 
 export default connect(

@@ -1,5 +1,15 @@
 body{
 	padding: 0;
-	margin:0;
+	margin:10px;
 	font-style: sans-serif;
 }
+
+#root{
+	text-align:center;
+}
+
+.phraseForm{
+	margin-top:20px;
+	text-align: center;
+}
+
