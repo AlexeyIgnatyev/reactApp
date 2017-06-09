@@ -8,8 +8,10 @@ const App = ({ testStore, onAddPhrase }) => {
 	let greeting = 'hello world'
 
 	const addPhrase = () => {
-		onAddPhrase(phraseInput.value);
-		phraseInput.value = '';
+		if (phraseInput.value.trim()){
+			onAddPhrase(phraseInput.value);
+			phraseInput.value = '';
+		}
 	}
 
 	console.log(testStore);
