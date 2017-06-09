@@ -23,6 +23,11 @@ const App = ({ testStore, onAddPhrase }) => {
 	   			<input type="text" ref={(input) => { phraseInput = input}} />
 	   			<button onClick={ addPhrase }>Push phrase</button>
    			</div>
+   			<ul>
+   				{ testStore.map((phrase, index) =>
+   					<li key={index}>{phrase}</li>
+				)}
+   			</ul>
    		</div>
 	);
 }
