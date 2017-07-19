@@ -1,0 +1,15 @@
+.phrase-container{
+	margin:auto;
+	width: 400px;
+}
+
+.phrase-push-form{
+	margin-top:20px;
+}
+
+.searchForm{}
+
+.phrase-label{
+	display:inline-block;
+	cursor:pointer;
+}

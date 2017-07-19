@@ -1,38 +1,32 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import { HashRouter, Route } from 'react-router-dom'
+import { createStore, applyMiddleware } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import thunk from 'redux-thunk';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
-import App from './App';
-import About from './About';
 import './css/style.css';
+import Menu from './components/Menu';
+import App from './components/App';
+import About from './components/About';
+import NotFound from './components/NotFound';
+import reducer from './reducers';
 
-let initialState = [
-	'yo!',
-	'hey'
-];
-
-function mainApp(state = initialState, action){
-	if (action.type === 'PUSH_DATA') {
-		return [
-			...state,
-			action.phrase
-		];
-	}
-	return state;
-}
-
-let store = createStore(mainApp, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+let store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
 
 ReactDOM.render(
-	<Provider store={store}>
-		<HashRouter>
+	<Provider store={ store }>
+		<Router>
 			<div>
-				<Route exact path="/" component={App}/>
-				<Route path="/about" component={About}/>
+				<Route component={Menu} />
+				<Switch>
+					<Route exact path="/" component={App} />
+					<Route path="/about" component={About} />
+					<Route component={NotFound}/>
+				</Switch>
 			</div>
-		</HashRouter>
+		</Router>
 	</Provider>, 
 	document.getElementById('root')
 );
